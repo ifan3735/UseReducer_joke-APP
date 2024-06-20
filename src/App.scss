@@ -1,0 +1,144 @@
+// App.scss
+
+/* Variables */
+$primary-color: #ff4d4f; // Primary color for buttons and highlights
+$secondary-color: #333;  // Secondary color for text
+$background-color: #f0f2f5; // Background color for the app
+$joke-background-color: #fff; // Background color for jokes
+$button-background-color: #e6f7ff; // Background color for buttons
+$button-hover-color: #91d5ff; // Button color on hover
+$border-radius: 8px; // Border radius for containers and buttons
+$padding: 16px; // Padding for containers
+$font-family: 'Arial', sans-serif; // Font family
+
+/* Global Styles */
+body {
+  background-color: $background-color;
+  font-family: $font-family;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: $padding;
+  background-color: #fff;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: $primary-color;
+  margin-bottom: $padding;
+}
+
+/* Form Styles */
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $padding;
+  margin-bottom: $padding;
+
+  input[type='text'] {
+    flex: 1;
+    padding: 8px;
+    border: 2px solid $primary-color;
+    border-radius: $border-radius;
+    font-size: 16px;
+  }
+
+  button {
+    background-color: $primary-color;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: $border-radius;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+}
+
+/* Jokes List Styles */
+.jokes {
+  display: flex;
+  flex-direction: column;
+  gap: $padding;
+}
+
+.joke {
+  background-color: $joke-background-color;
+  border-radius: $border-radius;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  padding: $padding;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: $padding / 2;
+
+  .joke-text {
+    color: $secondary-color;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .text {
+    font-size: 14px;
+    color: lighten($secondary-color, 20%);
+  }
+
+  .joke-buttons {
+    display: flex;
+    gap: $padding / 2;
+
+    button {
+      background-color: $button-background-color;
+      border: none;
+      border-radius: $border-radius;
+      cursor: pointer;
+      padding: 8px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $button-hover-color;
+      }
+
+      &:first-of-type {
+        color: #28a745; // Green color for thumbs up
+      }
+
+      &:last-of-type {
+        color: #dc3545; // Red color for thumbs down
+      }
+    }
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .container {
+    margin: 20px;
+    padding: $padding / 2;
+  }
+
+  .form {
+    flex-direction: column;
+    gap: $padding / 2;
+
+    input[type='text'] {
+      width: 100%;
+    }
+  }
+
+  .joke-buttons {
+    justify-content: space-between;
+  }
+}
